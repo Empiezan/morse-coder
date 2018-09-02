@@ -11,12 +11,12 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var morseInputView: UITextView!
-    @IBOutlet weak var morseTextLabel: UILabel!
+    @IBOutlet weak var morseOutputView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        morseInputView.setContentOffset(CGPoint.zero, animated: false)
+        morseOutputView.backgroundColor = UIColor.gray
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,11 +25,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func translateButton(_ sender: Any) {
-        let inputText : String = morseInputView.text ?? ""
+        let inputText : String = morseInputView.text
 
         let morseTranslation = MorseParagraph(textToTranslate: inputText).getMorse()
         
-        morseTextLabel.text = morseTranslation
+        morseOutputView.text = morseTranslation
     }
 }
 
