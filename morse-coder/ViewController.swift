@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         morseOutputView.backgroundColor = UIColor.gray
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +28,15 @@ class ViewController: UIViewController {
     @IBAction func translateButton(_ sender: Any) {
         let inputText : String = morseInputView.text
 
-        let morseTranslation = MorseParagraph(textToTranslate: inputText).getMorse()
+        var morseTranslation = ""
+        
+        do {
+            morseTranslation = try MorseParagraph(textToTranslate: inputText).getMorse()
+        } catch {
+            let alert = UIAlertController(title: "Whoops!", message: "We couldn't recognize one or more of the characters!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
         
         morseOutputView.text = morseTranslation
     }
