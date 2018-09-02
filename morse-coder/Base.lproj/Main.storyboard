@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,43 +19,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PlM-gj-01A">
-                                <rect key="frame" x="139" y="98" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Text to Translate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GN-Hk-q3h">
-                                <rect key="frame" x="124" y="69" width="127" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text to Translate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GN-Hk-q3h">
+                                <rect key="frame" x="124" y="54.5" width="126.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APz-NC-FEn">
-                                <rect key="frame" x="163" y="136" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APz-NC-FEn">
+                                <rect key="frame" x="163" y="249" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="translateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GnN-Ls-x1q"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Morse Code]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v43-2H-rfl">
-                                <rect key="frame" x="134" y="323" width="106" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Morse Code]" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v43-2H-rfl">
+                                <rect key="frame" x="16" y="313" width="343" height="334"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some Text" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVQ-dr-8vg">
+                                <rect key="frame" x="16" y="84" width="343" height="157"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morse Coder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVw-gw-dSe">
+                                <rect key="frame" x="126" y="20" width="124" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="v43-2H-rfl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2zP-zw-dNM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v43-2H-rfl" secondAttribute="bottom" constant="20" id="BCG-Xy-l5t"/>
+                            <constraint firstItem="KVw-gw-dSe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fbj-Vm-vDZ"/>
+                            <constraint firstItem="LVQ-dr-8vg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="KCC-Id-jyT"/>
+                            <constraint firstItem="APz-NC-FEn" firstAttribute="top" secondItem="LVQ-dr-8vg" secondAttribute="bottom" constant="8" id="KiX-JT-YOR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v43-2H-rfl" secondAttribute="trailing" constant="16" id="SaQ-Ud-wiN"/>
+                            <constraint firstItem="v43-2H-rfl" firstAttribute="top" secondItem="APz-NC-FEn" secondAttribute="bottom" constant="34" id="T3I-RH-XRy"/>
+                            <constraint firstItem="APz-NC-FEn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TkP-aH-b9l"/>
+                            <constraint firstItem="LVQ-dr-8vg" firstAttribute="top" secondItem="2GN-Hk-q3h" secondAttribute="bottom" constant="8.5" id="cZP-Il-vrF"/>
+                            <constraint firstItem="2GN-Hk-q3h" firstAttribute="top" secondItem="KVw-gw-dSe" secondAttribute="bottom" constant="8" id="dMz-Rg-CZH"/>
+                            <constraint firstItem="v43-2H-rfl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="dVI-78-poE"/>
+                            <constraint firstItem="KVw-gw-dSe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mxO-ev-bm5"/>
                             <constraint firstItem="2GN-Hk-q3h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pSB-Pg-D2Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LVQ-dr-8vg" secondAttribute="trailing" constant="16" id="yOL-Yy-UOv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="morseInputField" destination="PlM-gj-01A" id="TE0-8J-TzC"/>
+                        <outlet property="morseInputView" destination="LVQ-dr-8vg" id="Hhi-BL-cmR"/>
                         <outlet property="morseTextLabel" destination="v43-2H-rfl" id="MuL-Mo-qPk"/>
                     </connections>
                 </viewController>
