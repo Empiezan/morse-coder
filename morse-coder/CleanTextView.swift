@@ -18,7 +18,6 @@ class CleanTextView: UITextView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupFrame()
-        setupShadow()
     }
     
     func setupFrame() {
@@ -26,11 +25,5 @@ class CleanTextView: UITextView {
         layer.borderWidth = 0.1
         layer.cornerRadius = 2
         textContainerInset = UIEdgeInsetsMake(8, 5, 8, 5)
-    }
-    
-    func setupShadow() {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 3, height: 3)
-        layer.shadowOpacity = 0.4
     }
 }

@@ -17,6 +17,10 @@
 		68C637D7213C2FC800CA0BE9 /* MorseParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C637D6213C2FC800CA0BE9 /* MorseParagraph.swift */; };
 		68C637D9213C58AC00CA0BE9 /* Morse.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68C637D8213C58AC00CA0BE9 /* Morse.plist */; };
 		68FC8461213C76B900569D42 /* CleanTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FC8460213C76B900569D42 /* CleanTextView.swift */; };
+		68FC8463213CB0A900569D42 /* di.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68FC8462213CB0A800569D42 /* di.mp3 */; };
+		68FC8465213CB0AD00569D42 /* dah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68FC8464213CB0AD00569D42 /* dah.mp3 */; };
+		68FC8469213CBFE400569D42 /* short_gap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68FC8468213CBFE400569D42 /* short_gap.mp3 */; };
+		68FC846B213CBFFE00569D42 /* long_gap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68FC846A213CBFFE00569D42 /* long_gap.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		68C637D6213C2FC800CA0BE9 /* MorseParagraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseParagraph.swift; sourceTree = "<group>"; };
 		68C637D8213C58AC00CA0BE9 /* Morse.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Morse.plist; sourceTree = "<group>"; };
 		68FC8460213C76B900569D42 /* CleanTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTextView.swift; sourceTree = "<group>"; };
+		68FC8462213CB0A800569D42 /* di.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = di.mp3; sourceTree = "<group>"; };
+		68FC8464213CB0AD00569D42 /* dah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dah.mp3; sourceTree = "<group>"; };
+		68FC8468213CBFE400569D42 /* short_gap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = short_gap.mp3; sourceTree = "<group>"; };
+		68FC846A213CBFFE00569D42 /* long_gap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = long_gap.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,10 @@
 				22CC1E7821032A15007FE5F3 /* LaunchScreen.storyboard */,
 				22CC1E7B21032A15007FE5F3 /* Info.plist */,
 				68C637D8213C58AC00CA0BE9 /* Morse.plist */,
+				68FC8462213CB0A800569D42 /* di.mp3 */,
+				68FC8464213CB0AD00569D42 /* dah.mp3 */,
+				68FC8468213CBFE400569D42 /* short_gap.mp3 */,
+				68FC846A213CBFFE00569D42 /* long_gap.mp3 */,
 			);
 			path = "morse-coder";
 			sourceTree = "<group>";
@@ -238,9 +250,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FC8465213CB0AD00569D42 /* dah.mp3 in Resources */,
+				68FC846B213CBFFE00569D42 /* long_gap.mp3 in Resources */,
+				68FC8463213CB0A900569D42 /* di.mp3 in Resources */,
 				22CC1E7A21032A15007FE5F3 /* LaunchScreen.storyboard in Resources */,
 				22CC1E7721032A15007FE5F3 /* Assets.xcassets in Resources */,
 				22CC1E7521032A12007FE5F3 /* Main.storyboard in Resources */,
+				68FC8469213CBFE400569D42 /* short_gap.mp3 in Resources */,
 				68C637D9213C58AC00CA0BE9 /* Morse.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
