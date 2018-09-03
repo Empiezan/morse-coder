@@ -12,7 +12,7 @@
 import Foundation
 import AVFoundation
 
-class MorseParagraph {
+class MorseCode {
     
     enum MorseError : Error {
         case characterNotInDictionary(missingCharacter : Character)
@@ -32,7 +32,7 @@ class MorseParagraph {
     init (textToTranslate : String) throws {
         words = textToTranslate
         
-        morseArr = try MorseParagraph.toMorse(words: words)
+        morseArr = try MorseCode.toMorse(words: words)
         
         morseWords = morseArr.reduce("", { (prev, curr) in
             if !prev.isEmpty && curr != "|" && prev.last != "|"  {
@@ -64,7 +64,7 @@ class MorseParagraph {
         let unicodeArr = Array(words.uppercased())
         
         let morseArr = try unicodeArr.map{ (character) -> String in
-            guard let morseTranslation = MorseParagraph.translationDict[String(character)] else {
+            guard let morseTranslation = MorseCode.translationDict[String(character)] else {
                 throw MorseError.characterNotInDictionary(missingCharacter: character)
             }
             return morseTranslation
@@ -89,9 +89,9 @@ class MorseParagraph {
         
         do {
             for sound in Array(morseWords) {
-                let fileName = MorseParagraph.audioFileNames[sound]
+                let fileName = MorseCode.audioFileNames[sound]
                 
-                guard let url = MorseParagraph.audioFiles[fileName!] else {
+                guard let url = MorseCode.audioFiles[fileName!] else {
                     throw MorseError.couldNotFindAudio
                 }
                 

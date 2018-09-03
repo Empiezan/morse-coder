@@ -10,21 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var spinner : UIActivityIndicatorView!
+    
     @IBOutlet weak var morseInputView: UITextView!
     @IBOutlet weak var morseOutputView: UITextView!
     
-    var morseCode : MorseParagraph!
+    var morseCode : MorseCode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         morseOutputView.backgroundColor = UIColor.gray
-        
-        do {
-            morseCode = try MorseParagraph(textToTranslate: "")
-        } catch {
-            print(error)
-        }
+        translateText(text: "")
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,13 +32,21 @@ class ViewController: UIViewController {
     @IBAction func translateButton(_ sender: Any) {
         let inputText : String = morseInputView.text
         
+        if inputText == morseCode.getWords() {
+            return
+        }
+        
+        translateText(text: inputText)
+    }
+    
+    func translateText(text: String) {
         DispatchQueue.global().async {
             do {
-                self.morseCode = try MorseParagraph(textToTranslate: inputText)
+                self.morseCode = try MorseCode(textToTranslate: text)
                 DispatchQueue.main.async {
                     self.morseOutputView.text = self.morseCode.getMorse()
                 }
-            } catch MorseParagraph.MorseError.characterNotInDictionary(missingCharacter: let char) {
+            } catch MorseCode.MorseError.characterNotInDictionary(missingCharacter: let char) {
                 self.showAlertMessage(title: "Whoops!", message: "We couldn't translate '\(char)'")
             } catch {
                 print(error)
