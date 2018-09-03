@@ -15,9 +15,9 @@ import AVFoundation
 class MorseParagraph {
     
     enum MorseError : Error {
-        case CharacterNotInDictionary
-        case EmptyDictionary
-        case CouldNotFindAudio
+        case characterNotInDictionary(missingCharacter : Character)
+        case emptyDictionary
+        case couldNotFindAudio
     }
     
     var words : String = ""
@@ -58,18 +58,16 @@ class MorseParagraph {
     
     static func toMorse(words: String) throws -> [String] {
         if translationDict.count == 0 {
-            throw MorseError.EmptyDictionary
+            throw MorseError.emptyDictionary
         }
         
         let unicodeArr = Array(words.uppercased())
         
         let morseArr = try unicodeArr.map{ (character) -> String in
-            let morseTranslation = MorseParagraph.translationDict[String(character)]
-            if morseTranslation != nil {
-                return morseTranslation!
-            } else {
-                throw MorseError.CharacterNotInDictionary
+            guard let morseTranslation = MorseParagraph.translationDict[String(character)] else {
+                throw MorseError.characterNotInDictionary(missingCharacter: character)
             }
+            return morseTranslation
         }
         
         return morseArr
@@ -93,13 +91,11 @@ class MorseParagraph {
             for sound in Array(morseWords) {
                 let fileName = MorseParagraph.audioFileNames[sound]
                 
-                if fileName == nil {
-                    throw MorseError.CouldNotFindAudio
+                guard let url = MorseParagraph.audioFiles[fileName!] else {
+                    throw MorseError.couldNotFindAudio
                 }
                 
-                let url = MorseParagraph.audioFiles[fileName!]
-                
-                let item = AVPlayerItem(url: url!)
+                let item = AVPlayerItem(url: url)
                 audioQueue.append(item)
             }
         } catch let error as MorseError{
@@ -117,8 +113,6 @@ class MorseParagraph {
     }
     
     func getMorse() -> String {
-        
-        
         return morseWords
     }
 }

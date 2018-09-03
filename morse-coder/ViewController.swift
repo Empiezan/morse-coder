@@ -19,6 +19,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         morseOutputView.backgroundColor = UIColor.gray
+        
+        do {
+            morseCode = try MorseParagraph(textToTranslate: "")
+        } catch {
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,25 +35,34 @@ class ViewController: UIViewController {
     @IBAction func translateButton(_ sender: Any) {
         let inputText : String = morseInputView.text
         
-        do {
-            morseCode = try MorseParagraph(textToTranslate: inputText)
-        } catch {
-            let alert = UIAlertController(title: "Whoops!", message: "We couldn't recognize one or more of the characters!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
+        DispatchQueue.global().async {
+            do {
+                self.morseCode = try MorseParagraph(textToTranslate: inputText)
+                DispatchQueue.main.async {
+                    self.morseOutputView.text = self.morseCode.getMorse()
+                }
+            } catch MorseParagraph.MorseError.characterNotInDictionary(missingCharacter: let char) {
+                self.showAlertMessage(title: "Whoops!", message: "We couldn't translate '\(char)'")
+            } catch {
+                print(error)
+            }
         }
-        
-        morseOutputView.text = morseCode.getMorse()
     }
     
     @IBAction func playMorseCode(_ sender: Any) {
-        do {
-            try morseCode.playMorse()
-        } catch {
-            let alert = UIAlertController(title: "Sorry!", message: "We couldn't play the audio!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
+        DispatchQueue.global().async {
+            do {
+                try self.morseCode.playMorse()
+            } catch {
+                self.showAlertMessage(title: "Sorry!", message: "We couldn't play the audio right now!")
+            }
         }
+    }
+    
+    func showAlertMessage(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
 }
 
