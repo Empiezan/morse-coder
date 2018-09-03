@@ -45,7 +45,7 @@ class MorseCode {
     }
     
     static func getTranslationDict() -> [String : String] {
-        if let url = Bundle.main.url(forResource: "Morse", withExtension: "plist") {
+        if let url = Bundle.main.url(forResource: "Morse_International", withExtension: "plist") {
             do {
                 let data = try Data(contentsOf: url)
                 return try PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [String : String]

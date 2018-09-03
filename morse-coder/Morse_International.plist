@@ -76,5 +76,31 @@
 	<string>----.</string>
 	<key> </key>
 	<string>|</string>
+	<key>.</key>
+	<string>.-.-.-</string>
+	<key>,</key>
+	<string>--..--</string>
+	<key>?</key>
+	<string>..--..</string>
+	<key>!</key>
+	<string>-.-.--</string>
+	<key>&amp;</key>
+	<string>.-...</string>
+	<key>;</key>
+	<string>-.-.-.</string>
+	<key>:</key>
+	<string>---...</string>
+	<key>&apos;</key>
+	<string>.----.</string>
+	<key>/</key>
+	<string>-..-.</string>
+	<key>-</key>
+	<string>-....-</string>
+	<key>(</key>
+	<string>-.--.</string>
+	<key>)</key>
+	<string>-.--.-</string>
+	<key>&quot;</key>
+	<string>.-..-.</string>
 </dict>
 </plist>
