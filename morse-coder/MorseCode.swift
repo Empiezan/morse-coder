@@ -105,6 +105,7 @@ class MorseCode {
         }
         
         player = AVQueuePlayer(items: audioQueue)
+        player.automaticallyWaitsToMinimizeStalling = true
         player.play()
     }
     

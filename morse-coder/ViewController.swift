@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        morseOutputView.backgroundColor = UIColor.gray
+        setupSpinner()
         translateText(text: "")
     }
 
@@ -29,17 +29,25 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupSpinner() {
+        let width : CGFloat = 50
+        let height : CGFloat = 50
+        spinner = UIActivityIndicatorView(frame: CGRect(x: view.center.x - width/2, y: view.center.y - height/2, width: width, height: height))
+        spinner.color = UIColor.black
+        spinner.hidesWhenStopped = true
+        view.addSubview(spinner)
+    }
+    
     @IBAction func translateButton(_ sender: Any) {
         let inputText : String = morseInputView.text
         
-        if inputText == morseCode.getWords() {
-            return
+        if inputText != morseCode.getWords() {
+            translateText(text: inputText)
         }
-        
-        translateText(text: inputText)
     }
     
     func translateText(text: String) {
+        spinner.startAnimating()
         DispatchQueue.global().async {
             do {
                 self.morseCode = try MorseCode(textToTranslate: text)
@@ -51,15 +59,22 @@ class ViewController: UIViewController {
             } catch {
                 print(error)
             }
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+            }
         }
     }
     
     @IBAction func playMorseCode(_ sender: Any) {
+        spinner.startAnimating()
         DispatchQueue.global().async {
             do {
                 try self.morseCode.playMorse()
             } catch {
                 self.showAlertMessage(title: "Sorry!", message: "We couldn't play the audio right now!")
+            }
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
             }
         }
     }
