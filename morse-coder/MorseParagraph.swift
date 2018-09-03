@@ -5,6 +5,9 @@
 //  Created by labuser on 9/2/18.
 //  Copyright © 2018 mc. All rights reserved.
 //
+// Credits
+// 1. Playing a sequence of audio files (https://stackoverflow.com/questions/35844810/play-audio-file-in-a-sequence-usign-swift)
+// 2. Tool used to generate morse audio files (http://www.morseresource.com/morse/makemorse.php)
 
 import Foundation
 import AVFoundation

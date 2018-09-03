@@ -5,6 +5,8 @@
 //  Created by labuser on 9/2/18.
 //  Copyright © 2018 mc. All rights reserved.
 //
+// Credit
+// 1. Creating "padding" for textview ( https://stackoverflow.com/questions/7902990/add-padding-to-a-uitextview)
 
 import UIKit
 
