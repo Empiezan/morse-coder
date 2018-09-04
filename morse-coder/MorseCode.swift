@@ -14,17 +14,22 @@ import AVFoundation
 
 class MorseCode {
     
+    /// Cases where translation or audio playback might fail
     enum MorseError : Error {
         case characterNotInDictionary(missingCharacter : Character)
         case emptyDictionary
         case couldNotFindAudio
     }
     
+    /// Original, untranslated text
     var words : String = ""
-    var morseArr : [String] = []
+    /// Morse translation of words
     var morseWords : String = ""
+    
+    /// Audio player for morse code
     var player = AVQueuePlayer(items: [])
     
+    /// English-to-Morse dictionary
     static var translationDict : [String : String] = getTranslationDict()
     static let audioFileNames : [Character : String] = [".": "di", "-": "dah" , " ": "short_gap", "|": "long_gap"]
     static var audioFiles : [String : URL] = getAudioFiles()
@@ -32,18 +37,14 @@ class MorseCode {
     init (textToTranslate : String) throws {
         words = textToTranslate
         
-        morseArr = try MorseCode.toMorse(words: words)
-        
-        morseWords = morseArr.reduce("", { (prev, curr) in
-            if !prev.isEmpty && curr != "|" && prev.last != "|"  {
-                return prev + " " + curr
-            }
-            else {
-                return prev + curr
-            }
-        })
+        /// concatenates the array of Morse characters into a single String
+        morseWords = try MorseCode.toMorse(words: words)
     }
     
+    /// Returns the English-Morse dictionary that will be used for translation
+    ///
+    /// - Parameters: None
+    /// - Returns: The [String:String] translation dictionary
     static func getTranslationDict() -> [String : String] {
         if let url = Bundle.main.url(forResource: "Morse_International", withExtension: "plist") {
             do {
@@ -56,13 +57,20 @@ class MorseCode {
         return [:]
     }
     
-    static func toMorse(words: String) throws -> [String] {
+    /// Returns the Morse translation of a String
+    ///
+    /// - Parameters:
+    ///     - words: The String to be translated
+    /// - Returns: The Morse translation of the input string
+    static func toMorse(words: String) throws -> String {
         if translationDict.count == 0 {
             throw MorseError.emptyDictionary
         }
         
+        /// Split the string into an array of individual, uppercase characters
         let unicodeArr = Array(words.uppercased())
         
+        /// Map each character to its corresponding Morse code analog
         let morseArr = try unicodeArr.map{ (character) -> String in
             guard let morseTranslation = MorseCode.translationDict[String(character)] else {
                 throw MorseError.characterNotInDictionary(missingCharacter: character)
@@ -70,9 +78,23 @@ class MorseCode {
             return morseTranslation
         }
         
-        return morseArr
+        /// Reduce the array of Morse code characters to a single string
+        let morseWords = morseArr.reduce("", { (prev, curr) in
+            if !prev.isEmpty && curr != "|" && prev.last != "|"  {
+                return prev + " " + curr
+            }
+            else {
+                return prev + curr
+            }
+        })
+        
+        return morseWords
     }
     
+    /// Returns a dictionary of Morse code audiofile names and their URLs
+    ///
+    /// - Parameters: None
+    /// - Returns: The dictionary of String file names and URL keys
     static func getAudioFiles() -> [String : URL]  {
         var audioFiles : [String : URL] = [:]
         
@@ -85,9 +107,12 @@ class MorseCode {
     }
     
     func playMorse() throws {
+        /// A list of sounds that represent the Morse code translation
         var audioQueue : [AVPlayerItem] = []
         
         do {
+            /// Map each morse code character to its corresponding sound file
+            /// and add it to the audioQueue
             for sound in Array(morseWords) {
                 let fileName = MorseCode.audioFileNames[sound]
                 
@@ -98,10 +123,9 @@ class MorseCode {
                 let item = AVPlayerItem(url: url)
                 audioQueue.append(item)
             }
-        } catch let error as MorseError{
-            throw error
         } catch {
-            print(error)
+            /// Propagate error back to caller
+            throw error
         }
         
         player = AVQueuePlayer(items: audioQueue)

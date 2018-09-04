@@ -9,13 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var spinner : UIActivityIndicatorView!
     
     @IBOutlet weak var morseInputView: UITextView!
     @IBOutlet weak var morseOutputView: UITextView!
     
     var morseCode : MorseCode!
+    
+    var spinner : UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,15 +51,20 @@ class ViewController: UIViewController {
         DispatchQueue.global().async {
             do {
                 self.morseCode = try MorseCode(textToTranslate: text)
-                DispatchQueue.main.async {
-                    self.morseOutputView.text = self.morseCode.getMorse()
-                }
             } catch MorseCode.MorseError.characterNotInDictionary(missingCharacter: let char) {
-                self.showAlertMessage(title: "Whoops!", message: "We couldn't translate '\(char)'")
-            } catch {
+                DispatchQueue.main.async {
+                    self.showAlertMessage(title: "Whoops!", message: "We couldn't translate '\(char)'")
+                }
+            } catch MorseCode.MorseError.emptyDictionary {
+                DispatchQueue.main.async {
+                    self.showAlertMessage(title: "Whoops!", message: "We couldn't load our dictionary!")
+                }
+            }
+            catch {
                 print(error)
             }
             DispatchQueue.main.async {
+                self.morseOutputView.text = self.morseCode.getMorse()
                 self.spinner.stopAnimating()
             }
         }
@@ -71,7 +76,9 @@ class ViewController: UIViewController {
             do {
                 try self.morseCode.playMorse()
             } catch {
-                self.showAlertMessage(title: "Sorry!", message: "We couldn't play the audio right now!")
+                DispatchQueue.main.async {
+                    self.showAlertMessage(title: "Sorry!", message: "We couldn't play the audio right now!")
+                }
             }
             DispatchQueue.main.async {
                 self.spinner.stopAnimating()
@@ -85,4 +92,3 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
 }
-

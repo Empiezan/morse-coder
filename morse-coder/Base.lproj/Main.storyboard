@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,29 +16,29 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="morse_coder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morse Coder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVw-gw-dSe">
-                                <rect key="frame" x="87.5" y="42" width="145.5" height="31.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morse Coder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KVw-gw-dSe" customClass="ScalableTitleLabel" customModule="morse_coder" customModuleProvider="target">
+                                <rect key="frame" x="88" y="42" width="145" height="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ec0-X0-K1q">
-                                <rect key="frame" x="12" y="81.5" width="296" height="422.5"/>
+                                <rect key="frame" x="12" y="70" width="296" height="346"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wQz-AT-5XN">
-                                        <rect key="frame" x="0.0" y="0.0" width="296" height="206.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="wQz-AT-5XN">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="168"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text to Translate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GN-Hk-q3h">
-                                                <rect key="frame" x="78" y="0.0" width="140.5" height="31.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text to Translate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GN-Hk-q3h" customClass="ScalableHeadingLabel" customModule="morse_coder" customModuleProvider="target">
+                                                <rect key="frame" x="88" y="0.0" width="120" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" translatesAutoresizingMaskIntoConstraints="NO" id="LVQ-dr-8vg" customClass="CleanTextView" customModule="morse_coder" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="31.5" width="296" height="175"/>
+                                                <rect key="frame" x="0.0" y="25.5" width="296" height="142.5"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -47,31 +47,35 @@
                                         <constraints>
                                             <constraint firstItem="LVQ-dr-8vg" firstAttribute="height" secondItem="wQz-AT-5XN" secondAttribute="height" multiplier="0.85" id="I5c-Xe-lBa"/>
                                             <constraint firstItem="LVQ-dr-8vg" firstAttribute="width" secondItem="wQz-AT-5XN" secondAttribute="width" id="ahx-II-zXV"/>
+                                            <constraint firstItem="2GN-Hk-q3h" firstAttribute="height" relation="greaterThanOrEqual" secondItem="wQz-AT-5XN" secondAttribute="height" multiplier="0.01" id="vqe-R3-FIC"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Z0c-4D-dGG">
-                                        <rect key="frame" x="0.0" y="216.5" width="296" height="206"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Z0c-4D-dGG">
+                                        <rect key="frame" x="0.0" y="178" width="296" height="168"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sLO-ma-hkn">
-                                                <rect key="frame" x="80" y="0.0" width="136.5" height="31"/>
+                                                <rect key="frame" x="89" y="0.0" width="118.5" height="19"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morse Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgd-6V-x2Q">
-                                                        <rect key="frame" x="0.0" y="3.5" width="106.5" height="24"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morse Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgd-6V-x2Q" customClass="ScalableHeadingLabel" customModule="morse_coder" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="88.5" height="19"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uI6-NA-Pab">
-                                                        <rect key="frame" x="116.5" y="4.5" width="20" height="22"/>
+                                                        <rect key="frame" x="98.5" y="0.0" width="20" height="19"/>
                                                         <state key="normal" image="Speaker"/>
                                                         <connections>
                                                             <action selector="playMorseCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mWj-dw-TQi"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="pgd-6V-x2Q" firstAttribute="height" relation="greaterThanOrEqual" secondItem="sLO-ma-hkn" secondAttribute="height" multiplier="0.1" id="wTQ-iV-1ML"/>
+                                                </constraints>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6F-ue-qcJ" customClass="CleanTextView" customModule="morse_coder" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="31" width="296" height="175"/>
+                                                <rect key="frame" x="0.0" y="25" width="296" height="143"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14827244718309859" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -79,7 +83,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="p6F-ue-qcJ" firstAttribute="width" secondItem="Z0c-4D-dGG" secondAttribute="width" id="2B3-Hv-DbB"/>
-                                            <constraint firstItem="p6F-ue-qcJ" firstAttribute="height" relation="lessThanOrEqual" secondItem="Z0c-4D-dGG" secondAttribute="height" multiplier="0.85" id="syh-yZ-its"/>
+                                            <constraint firstItem="p6F-ue-qcJ" firstAttribute="height" secondItem="Z0c-4D-dGG" secondAttribute="height" multiplier="0.85" id="syh-yZ-its"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -94,7 +98,8 @@
                                 <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APz-NC-FEn">
-                                <rect key="frame" x="135.5" y="512" width="49" height="40"/>
+                                <rect key="frame" x="120" y="424" width="80" height="40"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="translateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GnN-Ls-x1q"/>
@@ -117,8 +122,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="morseInputView" destination="LVQ-dr-8vg" id="Hhi-BL-cmR"/>
-                        <outlet property="morseOutputView" destination="p6F-ue-qcJ" id="xqU-LZ-NFv"/>
+                        <outlet property="morseInputView" destination="LVQ-dr-8vg" id="CUo-Uw-2Qr"/>
+                        <outlet property="morseOutputView" destination="p6F-ue-qcJ" id="cNC-gN-NfN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

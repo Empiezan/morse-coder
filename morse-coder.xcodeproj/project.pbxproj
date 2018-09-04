@@ -16,6 +16,8 @@
 		22CC1E9021032A15007FE5F3 /* morse_coderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC1E8F21032A15007FE5F3 /* morse_coderUITests.swift */; };
 		68C637D7213C2FC800CA0BE9 /* MorseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C637D6213C2FC800CA0BE9 /* MorseCode.swift */; };
 		68E019A8213DF13E0079CEE0 /* Morse_International.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68E019A7213DF13E0079CEE0 /* Morse_International.plist */; };
+		68F22CB9213E08570067CA81 /* ScalableTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F22CB8213E08570067CA81 /* ScalableTitleLabel.swift */; };
+		68F22CBB213E0B410067CA81 /* ScalableHeadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F22CBA213E0B410067CA81 /* ScalableHeadingLabel.swift */; };
 		68FC8461213C76B900569D42 /* CleanTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FC8460213C76B900569D42 /* CleanTextView.swift */; };
 		68FC8463213CB0A900569D42 /* di.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68FC8462213CB0A800569D42 /* di.mp3 */; };
 		68FC8465213CB0AD00569D42 /* dah.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68FC8464213CB0AD00569D42 /* dah.mp3 */; };
@@ -56,6 +58,8 @@
 		22CC1E9121032A15007FE5F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68C637D6213C2FC800CA0BE9 /* MorseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
 		68E019A7213DF13E0079CEE0 /* Morse_International.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Morse_International.plist; sourceTree = "<group>"; };
+		68F22CB8213E08570067CA81 /* ScalableTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalableTitleLabel.swift; sourceTree = "<group>"; };
+		68F22CBA213E0B410067CA81 /* ScalableHeadingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalableHeadingLabel.swift; sourceTree = "<group>"; };
 		68FC8460213C76B900569D42 /* CleanTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTextView.swift; sourceTree = "<group>"; };
 		68FC8462213CB0A800569D42 /* di.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = di.mp3; sourceTree = "<group>"; };
 		68FC8464213CB0AD00569D42 /* dah.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dah.mp3; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 				22CC1E7121032A12007FE5F3 /* ViewController.swift */,
 				68C637D6213C2FC800CA0BE9 /* MorseCode.swift */,
 				22CC1E7321032A12007FE5F3 /* Main.storyboard */,
+				68F22CB8213E08570067CA81 /* ScalableTitleLabel.swift */,
+				68F22CBA213E0B410067CA81 /* ScalableHeadingLabel.swift */,
 				68FC8460213C76B900569D42 /* CleanTextView.swift */,
 				22CC1E7621032A15007FE5F3 /* Assets.xcassets */,
 				22CC1E7821032A15007FE5F3 /* LaunchScreen.storyboard */,
@@ -282,6 +288,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F22CBB213E0B410067CA81 /* ScalableHeadingLabel.swift in Sources */,
+				68F22CB9213E08570067CA81 /* ScalableTitleLabel.swift in Sources */,
 				22CC1E7221032A12007FE5F3 /* ViewController.swift in Sources */,
 				68FC8461213C76B900569D42 /* CleanTextView.swift in Sources */,
 				68C637D7213C2FC800CA0BE9 /* MorseCode.swift in Sources */,
