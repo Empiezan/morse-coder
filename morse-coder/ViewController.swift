@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         setupSpinner()
         translateText(text: "")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +38,10 @@ class ViewController: UIViewController {
         spinner.color = UIColor.black
         spinner.hidesWhenStopped = true
         view.addSubview(spinner)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func translateButton(_ sender: Any) {
